@@ -18,4 +18,4 @@ function checkpassword (originalpassword, cryptopassword) {
 
 }
 
-console.log(checkpassword('qwert', 'twerq',));
+console.log(checkpassword('qwert','twerq'));
