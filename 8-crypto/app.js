@@ -1,27 +1,21 @@
 
-function crypto (password) {
-    const array  = password.split('');
+function crypto (originalpassword) {
+    const array = originalpassword.split('');
     array.splice(4, 1);
     array.unshift('t');
     array.splice(1,1);
     array.push('q');
-    const strreturn = array.join('')
-    return strreturn;
+    const returstringnarray = array.join('')
+    return returstringnarray;
 }
 
-function check (cryptopassword, password) {
-    const cryptoarray = cryptopassword.split('');
-    cryptoarray.splice(0,1);
-    cryptoarray.push('t')
-    cryptoarray.splice(3,1);
-    cryptoarray.unshift('q');
-    const strcryptoarray = cryptoarray.join('');
-    if (strcryptoarray === password) {
-        return true;
-    } else {
+function checkpassword (originalpassword, cryptopassword) {
+    if(originalpassword && cryptopassword === '') {
         return false;
     }
+    const checkpassword = crypto(originalpassword);
+    return checkpassword === cryptopassword;
+
 }
 
-console.log(crypto('qwert'));
-console.log(check('twerq', 'qwert'));
+console.log(checkpassword('qwert', 'twerq',));
