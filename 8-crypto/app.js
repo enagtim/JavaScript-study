@@ -5,13 +5,10 @@ function crypto(password) {
     return arr.join('');
 }
 function checkpassword(password) {
-    if (password.length < 5) {
-        return false;
-    }
     const originalpassword = password;
     const cryptopassword = crypto(originalpassword);
     const reversecryptopassword = crypto(cryptopassword); 
-    if(password === '') {
+    if(password === '' || password.length < 5) {
         return false;
     }else if(originalpassword === reversecryptopassword) {
         return true;
