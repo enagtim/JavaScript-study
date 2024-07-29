@@ -1,21 +1,20 @@
-
-function crypto (originalpassword) {
-    const array = originalpassword.split('');
-    array.splice(4, 1);
-    array.unshift('t');
-    array.splice(1,1);
-    array.push('q');
-    const returstringnarray = array.join('')
-    return returstringnarray;
+function crypto(password) {
+    let arr = password.split('');
+    [arr[0], arr[4]] = [arr[4], arr[0]];
+    [arr[2], arr[3]] = [arr[3], arr[2]];
+    return arr.join('');
 }
-
-function checkpassword (originalpassword, cryptopassword) {
-    if(originalpassword && cryptopassword === '') {
+function checkpassword(password) {
+    if (password.length < 5) {
         return false;
     }
-    const checkpassword = crypto(originalpassword);
-    return checkpassword === cryptopassword;
-
+    const originalpassword = password;
+    const cryptopassword = crypto(originalpassword);
+    const reversecryptopassword = crypto(cryptopassword); 
+    if(password === '') {
+        return false;
+    }else if(originalpassword === reversecryptopassword) {
+        return true;
+    }
 }
-
-console.log(checkpassword('qwert','twerq'));
+console.log(checkpassword('qwert'));
