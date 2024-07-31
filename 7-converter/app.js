@@ -1,5 +1,4 @@
 let rate;
-
 function converter (money, currency, orcurrency) {
     if (currency === 'RUB' && orcurrency === 'USD'){
         rate = 0.011;
@@ -18,7 +17,6 @@ function converter (money, currency, orcurrency) {
     }
     return money * rate;
 }
-
 console.log(converter(1000, 'RUB', 'USD'));
 console.log(converter(1000, 'USD', 'RUB'));
 console.log(converter(1000, 'RUB', 'EURO'));
